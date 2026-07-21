@@ -1,0 +1,115 @@
+import type { LandingPageContent, SiteSettings } from './types';
+
+export const sampleSettings: SiteSettings = {
+  _id: 'sample-site-settings',
+  siteName: 'Human in Command',
+  tagline: "Roger Robinson's AI-era operating method",
+  metaDescription:
+    'Human in Command teaches non-programmers how to lead AI agents with judgement, structure, and weekly operating discipline.',
+  contactEmail: 'rgrrobinson@gmail.com',
+  siteUrl: 'https://humanincommand.com.au',
+  navigation: [
+    { label: 'Method', href: '#method' },
+    { label: 'Proof', href: '#proof' },
+    { label: 'Course', href: '#course' },
+    { label: 'Questions', href: '#faq' },
+  ],
+  ctaLabel: 'Join the early list',
+  ctaHref: 'mailto:rgrrobinson@gmail.com?subject=Human%20in%20Command',
+};
+
+export const sampleLandingPage: LandingPageContent = {
+  _id: 'sample-landing-page',
+  hero: {
+    eyebrow: "Roger Robinson's AI-era operating method",
+    headline: 'Stay human. Lead the agents. Build the business.',
+    subheadline:
+      'Human in Command teaches non-programmers how to direct AI collaborators through a command centre, decision logs, defined roles, and a weekly operating rhythm, while keeping human judgement firmly in charge.',
+    primaryCtaLabel: 'Join the early list',
+    primaryCtaHref: 'mailto:rgrrobinson@gmail.com?subject=Human%20in%20Command',
+    secondaryCtaLabel: 'See the method',
+    secondaryCtaHref: '#method',
+  },
+  introHeading:
+    'AI can research, write, code, plan, review, and produce at startling speed. But speed without structure creates drift.',
+  introQuote:
+    'Anyone who keeps learning stays young. Human in Command is built on that belief: the future belongs to people who keep thinking, learning, and directing the tools.',
+  methodEyebrow: 'The operating layer',
+  methodHeading: 'The method behind the products',
+  methodBody:
+    'Human in Command is the parent system. Solo Launch, Home Salon Blueprint, Sunshine Beauty Therapy, and future products become applications and case studies.',
+  methodPillars: [
+    {
+      number: '01',
+      title: 'Command centre',
+      body: 'One source of truth for goals, roles, tasks, assets, risks, and context.',
+    },
+    {
+      number: '02',
+      title: 'AI agent roles',
+      body: 'Strategy adviser, researcher, copywriter, technical builder, reviewer, and project manager.',
+    },
+    {
+      number: '03',
+      title: 'Decision discipline',
+      body: 'Major product, pricing, technical, and brand choices are logged and signed off by the human.',
+    },
+    {
+      number: '04',
+      title: 'Weekly rhythm',
+      body: 'A repeatable cadence for what changed, what matters, what is blocked, and what happens next.',
+    },
+  ],
+  proofEyebrow: 'Founding proof',
+  proofHeading: 'Built from live projects, not theory',
+  proofBody:
+    'Roger is using the method now: coordinating Notion, GitHub, Vercel, Sanity, Perplexity, ChatGPT/Codex, Antigravity, and human collaborators across real business builds.',
+  caseStudies: [
+    {
+      title: 'Jane learns the method',
+      body: 'Jane becomes the first collaborator, using her own AI partner to help shape Home Salon Blueprint.',
+    },
+    {
+      title: 'Solo Launch',
+      body: 'A web-business launch platform built with the same operating method it teaches.',
+    },
+    {
+      title: 'Sunshine Beauty Therapy',
+      body: 'An existing salon site upgraded with content management, bookings, and voucher infrastructure.',
+    },
+  ],
+  courseEyebrow: 'First course shape',
+  courseHeading: 'For capable people who do not want to become technicians',
+  courseModules: [
+    { title: 'The New Role', body: 'Become the business architect, not the button-pusher.' },
+    { title: 'The Command Centre', body: 'Build the shared memory that every AI reads from.' },
+    { title: 'The AI Team', body: 'Give every agent a role, context, and boundary.' },
+    { title: 'The Decision System', body: 'Keep judgement, risk, and sign-off in human hands.' },
+    { title: 'The Build Stack', body: 'Understand GitHub, Vercel, Sanity, content, payments, and deployment at founder level.' },
+    { title: 'The Weekly Rhythm', body: 'Turn AI speed into steady progress.' },
+    { title: 'The First Product', body: 'Apply the method to a real offer and website.' },
+    { title: 'The Update Engine', body: 'Keep the course alive as AI tools change.' },
+  ],
+  faqHeading: 'Common questions',
+  faqs: [
+    {
+      question: 'Is this an AI tools course?',
+      answer:
+        'No. Tools matter, but Human in Command is about the operating method: how a human leads AI-assisted work with structure and judgement.',
+    },
+    {
+      question: 'Do I need to be technical?',
+      answer:
+        'No. The course is for non-programmers who want to understand enough to direct the work, ask better questions, and make sound decisions.',
+    },
+    {
+      question: 'Why is the course living rather than fixed?',
+      answer:
+        'Because AI tools change quickly. The stable lesson is how to stay in command while the stack evolves.',
+    },
+  ],
+  finalEyebrow: 'Early access',
+  finalHeading: 'Human in Command is being built in public, from the inside of real work.',
+  finalCtaLabel: 'Register interest',
+  finalCtaHref: 'mailto:rgrrobinson@gmail.com?subject=Human%20in%20Command%20early%20access',
+};
