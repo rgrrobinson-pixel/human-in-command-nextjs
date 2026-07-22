@@ -37,36 +37,36 @@ export interface SiteSettings {
 }
 
 export interface HeroContent {
-  eyebrow: string;
-  headline: string;
-  subheadline: string;
-  primaryCtaLabel: string;
-  primaryCtaHref: string;
-  secondaryCtaLabel: string;
-  secondaryCtaHref: string;
+  eyebrow?: string;
+  headline?: string;
+  subheadline?: string;
+  primaryCtaLabel?: string;
+  primaryCtaHref?: string;
+  secondaryCtaLabel?: string;
+  secondaryCtaHref?: string;
   heroImage?: SanityImage;
 }
 
 export interface MethodPillar {
-  number: string;
-  title: string;
-  body: string;
+  number?: string;
+  title?: string;
+  body?: string;
 }
 
 export interface CaseStudy {
-  title: string;
-  body: string;
+  title?: string;
+  body?: string;
 }
 
 export interface CourseModule {
-  title: string;
-  body: string;
+  title?: string;
+  body?: string;
 }
 
 export interface FaqItem {
   _id?: string;
-  question: string;
-  answer: string;
+  question?: string;
+  answer?: string;
 }
 
 export interface AboutSection {
@@ -80,30 +80,30 @@ export interface AboutSection {
 
 export interface LandingPageContent {
   _id?: string;
-  hero: HeroContent;
-  introHeading: string;
-  introQuote: string;
-  methodEyebrow: string;
-  methodHeading: string;
-  methodBody: string;
-  methodPillars: MethodPillar[];
-  proofEyebrow: string;
-  proofHeading: string;
-  proofBody: string;
-  caseStudies: CaseStudy[];
-  courseEyebrow: string;
-  courseHeading: string;
-  courseModules: CourseModule[];
-  faqHeading: string;
-  faqs: FaqItem[];
-  finalEyebrow: string;
-  finalHeading: string;
-  finalCtaLabel: string;
-  finalCtaHref: string;
+  hero?: HeroContent;
+  introHeading?: string;
+  introQuote?: string;
+  methodEyebrow?: string;
+  methodHeading?: string;
+  methodBody?: string;
+  methodPillars?: MethodPillar[];
+  proofEyebrow?: string;
+  proofHeading?: string;
+  proofBody?: string;
+  caseStudies?: CaseStudy[];
+  courseEyebrow?: string;
+  courseHeading?: string;
+  courseModules?: CourseModule[];
+  faqHeading?: string;
+  faqs?: FaqItem[];
+  finalEyebrow?: string;
+  finalHeading?: string;
+  finalCtaLabel?: string;
+  finalCtaHref?: string;
 }
 
 export interface SiteContent {
   settings: SiteSettings;
-  landingPage: LandingPageContent;
-  usingSampleContent: boolean;
+  landingPage: LandingPageContent | null;
+  isMissingSanityConfig: boolean;
 }
