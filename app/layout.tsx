@@ -7,11 +7,11 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     title: `${settings.siteName} | Roger Robinson`,
-    description: settings.metaDescription ?? landingPage.hero.subheadline,
+    description: settings.metaDescription ?? landingPage?.hero?.subheadline ?? 'Content coming soon.',
     metadataBase: new URL(settings.siteUrl ?? 'https://humanincommand.com.au'),
     openGraph: {
       title: settings.siteName,
-      description: settings.metaDescription ?? landingPage.hero.subheadline,
+      description: settings.metaDescription ?? landingPage?.hero?.subheadline ?? 'Content coming soon.',
       type: 'website',
       images: [{ url: '/human-in-command-hero.png', width: 1200, height: 630 }],
     },
