@@ -179,6 +179,20 @@ h3 {
   font-size: clamp(18px, 2vw, 22px);
 }
 
+.content-soon {
+  min-height: 78vh;
+}
+
+.config-note {
+  display: inline-flex;
+  margin-top: 18px;
+  border: 1px solid rgba(255, 253, 248, 0.34);
+  border-radius: 6px;
+  padding: 10px 12px;
+  color: rgba(255, 253, 248, 0.78);
+  font-size: 14px;
+}
+
 .button-row,
 .cta-band {
   display: flex;
