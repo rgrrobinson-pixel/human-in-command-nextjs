@@ -5,17 +5,47 @@ export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
 export default async function HomePage() {
-  const { settings, landingPage, usingSampleContent } = await getSiteContent();
-  const hero = landingPage.hero;
+  const { settings, landingPage, isMissingSanityConfig } = await getSiteContent();
+
+  if (!landingPage) {
+    return (
+      <>
+        <section className="hero content-soon" id="top">
+          <Image
+            className="hero__image"
+            src="/human-in-command-hero.png"
+            alt="A mature business architect directing AI-assisted workstreams in a calm studio."
+            fill
+            priority
+            sizes="100vw"
+          />
+          <div className="hero__scrim" />
+          <div className="hero__content">
+            <p className="eyebrow">{settings.tagline ?? 'Human in Command'}</p>
+            <h1>Content coming soon</h1>
+            <p className="hero__copy">
+              The Human in Command website is connected to Sanity. Create and
+              publish a Landing Page document in Studio to replace this placeholder.
+            </p>
+            {isMissingSanityConfig && (
+              <p className="config-note">
+                Sanity environment variables are not configured yet.
+              </p>
+            )}
+          </div>
+        </section>
+        <footer className="footer">
+          <p>{settings.siteName} by Roger Robinson</p>
+          <p>Sunshine Coast, Australia</p>
+        </footer>
+      </>
+    );
+  }
+
+  const hero = landingPage.hero ?? {};
 
   return (
     <>
-      {usingSampleContent && (
-        <div className="sample-banner">
-          Demo mode: connect Sanity content to replace the built-in Human in Command copy.
-        </div>
-      )}
-
       <section className="hero" id="top">
         <Image
           className="hero__image"
@@ -27,16 +57,23 @@ export default async function HomePage() {
         />
         <div className="hero__scrim" />
         <div className="hero__content">
-          <p className="eyebrow">{hero.eyebrow}</p>
-          <h1>{hero.headline}</h1>
-          <p className="hero__copy">{hero.subheadline}</p>
+          <p className="eyebrow">{hero.eyebrow ?? settings.tagline ?? 'Human in Command'}</p>
+          <h1>{hero.headline ?? 'Content coming soon'}</h1>
+          <p className="hero__copy">
+            {hero.subheadline ??
+              'Create and publish the Landing Page content in Sanity Studio to complete this page.'}
+          </p>
           <div className="button-row">
-            <a className="button button--primary" href={hero.primaryCtaHref}>
-              {hero.primaryCtaLabel}
-            </a>
-            <a className="button button--secondary" href={hero.secondaryCtaHref}>
-              {hero.secondaryCtaLabel}
-            </a>
+            {hero.primaryCtaLabel && hero.primaryCtaHref && (
+              <a className="button button--primary" href={hero.primaryCtaHref}>
+                {hero.primaryCtaLabel}
+              </a>
+            )}
+            {hero.secondaryCtaLabel && hero.secondaryCtaHref && (
+              <a className="button button--secondary" href={hero.secondaryCtaHref}>
+                {hero.secondaryCtaLabel}
+              </a>
+            )}
           </div>
         </div>
       </section>
@@ -57,8 +94,8 @@ export default async function HomePage() {
           <p>{landingPage.methodBody}</p>
         </div>
         <div className="method-grid">
-          {landingPage.methodPillars.map((pillar) => (
-            <article key={pillar.number}>
+          {(landingPage.methodPillars ?? []).map((pillar) => (
+            <article key={pillar.number ?? pillar.title}>
               <span>{pillar.number}</span>
               <h3>{pillar.title}</h3>
               <p>{pillar.body}</p>
@@ -74,7 +111,7 @@ export default async function HomePage() {
           <p>{landingPage.proofBody}</p>
         </div>
         <div className="proof-list">
-          {landingPage.caseStudies.map((item) => (
+          {(landingPage.caseStudies ?? []).map((item) => (
             <article key={item.title}>
               <h3>{item.title}</h3>
               <p>{item.body}</p>
@@ -89,7 +126,7 @@ export default async function HomePage() {
           <h2>{landingPage.courseHeading}</h2>
         </div>
         <ol className="course-list">
-          {landingPage.courseModules.map((module) => (
+          {(landingPage.courseModules ?? []).map((module) => (
             <li key={module.title}>
               <span>{module.title}</span>
               {module.body}
@@ -104,7 +141,7 @@ export default async function HomePage() {
           <h2>{landingPage.faqHeading}</h2>
         </div>
         <div className="faq-list">
-          {landingPage.faqs.map((faq) => (
+          {(landingPage.faqs ?? []).map((faq) => (
             <article key={faq.question}>
               <h3>{faq.question}</h3>
               <p>{faq.answer}</p>
@@ -118,9 +155,11 @@ export default async function HomePage() {
           <p className="eyebrow">{landingPage.finalEyebrow}</p>
           <h2>{landingPage.finalHeading}</h2>
         </div>
-        <a className="button button--primary" href={landingPage.finalCtaHref}>
-          {landingPage.finalCtaLabel}
-        </a>
+        {landingPage.finalCtaLabel && landingPage.finalCtaHref && (
+          <a className="button button--primary" href={landingPage.finalCtaHref}>
+            {landingPage.finalCtaLabel}
+          </a>
+        )}
       </section>
 
       <footer className="footer">
