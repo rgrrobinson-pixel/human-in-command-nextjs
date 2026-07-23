@@ -104,6 +104,23 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {landingPage.trialHeading && (
+        <section className="section trial" id="trial">
+          <div className="section-heading">
+            <p className="eyebrow">{landingPage.trialEyebrow}</p>
+            <h2>{landingPage.trialHeading}</h2>
+            <p>{landingPage.trialBody}</p>
+            {landingPage.trialCtaLabel && landingPage.trialCtaHref && (
+              <div className="button-row">
+                <a className="button button--primary" href={landingPage.trialCtaHref}>
+                  {landingPage.trialCtaLabel}
+                </a>
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
       <section className="section split" id="proof">
         <div>
           <p className="eyebrow">{landingPage.proofEyebrow}</p>

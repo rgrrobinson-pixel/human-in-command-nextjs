@@ -258,6 +258,24 @@ h3 {
   margin-bottom: 34px;
 }
 
+.section.trial {
+  background: linear-gradient(135deg, rgba(37, 178, 168, 0.08), rgba(37, 178, 168, 0.02));
+  border-top: 1px solid rgba(37, 178, 168, 0.25);
+  border-bottom: 1px solid rgba(37, 178, 168, 0.25);
+}
+
+.section.trial .section-heading {
+  max-width: 780px;
+}
+
+.section.trial .section-heading .eyebrow {
+  color: var(--teal);
+}
+
+.section.trial .section-heading .button-row {
+  margin-top: 32px;
+}
+
 .section-heading p:not(.eyebrow),
 .split > div:first-child p {
   max-width: 760px;

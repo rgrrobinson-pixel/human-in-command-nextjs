@@ -87,6 +87,11 @@ export interface LandingPageContent {
   methodHeading?: string;
   methodBody?: string;
   methodPillars?: MethodPillar[];
+  trialEyebrow?: string;
+  trialHeading?: string;
+  trialBody?: string;
+  trialCtaLabel?: string;
+  trialCtaHref?: string;
   proofEyebrow?: string;
   proofHeading?: string;
   proofBody?: string;
