@@ -44,8 +44,9 @@ export default async function HomePage() {
   }
 
   const hero = landingPage.hero ?? {};
-  const trialImageUrl = landingPage.trialImage
-    ? urlFor(landingPage.trialImage).width(960).height(540).fit('crop').url()
+  const trialImageBuilder = landingPage.trialImage ? urlFor(landingPage.trialImage) : null;
+  const trialImageUrl = trialImageBuilder
+    ? trialImageBuilder.width(960).height(540).fit('crop').url()
     : null;
   const trialPreview = trialImageUrl ? (
     <span className="trial-preview__frame">
