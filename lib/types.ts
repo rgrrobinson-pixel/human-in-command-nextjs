@@ -92,6 +92,7 @@ export interface LandingPageContent {
   trialBody?: string;
   trialCtaLabel?: string;
   trialCtaHref?: string;
+  trialImage?: SanityImage;
   proofEyebrow?: string;
   proofHeading?: string;
   proofBody?: string;
