@@ -55,6 +55,7 @@ const landingPageQuery = `*[_type == "landingPage"][0]{
   trialBody,
   trialCtaLabel,
   trialCtaHref,
+  trialImage,
   proofEyebrow,
   proofHeading,
   proofBody,

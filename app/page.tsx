@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { getSiteContent } from '@/lib/getContent';
+import { urlFor } from '@/sanity/lib/image';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
@@ -43,6 +44,23 @@ export default async function HomePage() {
   }
 
   const hero = landingPage.hero ?? {};
+  const trialImageBuilder = landingPage.trialImage ? urlFor(landingPage.trialImage) : null;
+  const trialImageUrl = trialImageBuilder
+    ? trialImageBuilder.width(960).height(540).fit('crop').url()
+    : null;
+  const trialPreview = trialImageUrl ? (
+    <span className="trial-preview__frame">
+      <Image
+        src={trialImageUrl}
+        alt="Video preview for Segment 1 of the Human in Command free course."
+        width={960}
+        height={540}
+        sizes="(max-width: 880px) 100vw, 380px"
+      />
+      <span className="trial-preview__play" aria-hidden="true" />
+      <span className="trial-preview__label">Segment 1</span>
+    </span>
+  ) : null;
 
   return (
     <>
@@ -110,11 +128,20 @@ export default async function HomePage() {
             <p className="eyebrow">{landingPage.trialEyebrow}</p>
             <h2>{landingPage.trialHeading}</h2>
             <p>{landingPage.trialBody}</p>
-            {landingPage.trialCtaLabel && landingPage.trialCtaHref && (
-              <div className="button-row">
-                <a className="button button--primary" href={landingPage.trialCtaHref}>
-                  {landingPage.trialCtaLabel}
-                </a>
+            {(trialPreview || (landingPage.trialCtaLabel && landingPage.trialCtaHref)) && (
+              <div className="trial__cta-panel">
+                {trialPreview && landingPage.trialCtaHref ? (
+                  <a className="trial-preview" href={landingPage.trialCtaHref} aria-label="Watch Segment 1 of the free course">
+                    {trialPreview}
+                  </a>
+                ) : (
+                  trialPreview && <div className="trial-preview">{trialPreview}</div>
+                )}
+                {landingPage.trialCtaLabel && landingPage.trialCtaHref && (
+                  <a className="button button--primary" href={landingPage.trialCtaHref}>
+                    {landingPage.trialCtaLabel}
+                  </a>
+                )}
               </div>
             )}
           </div>

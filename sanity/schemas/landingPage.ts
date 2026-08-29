@@ -50,6 +50,12 @@ export const landingPage = defineType({
     defineField({ name: 'trialBody', title: 'Trial Body', type: 'text', rows: 6 }),
     defineField({ name: 'trialCtaLabel', title: 'Trial CTA Label', type: 'string' }),
     defineField({ name: 'trialCtaHref', title: 'Trial CTA Link', type: 'string' }),
+    defineField({
+      name: 'trialImage',
+      title: 'Trial Section Image',
+      type: 'image',
+      options: { hotspot: true },
+    }),
     defineField({ name: 'proofEyebrow', title: 'Proof Eyebrow', type: 'string' }),
     defineField({ name: 'proofHeading', title: 'Proof Heading', type: 'string' }),
     defineField({ name: 'proofBody', title: 'Proof Body', type: 'text', rows: 4 }),
